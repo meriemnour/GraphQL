@@ -1,0 +1,41 @@
+type Chapter
+{
+
+id:String
+name:String
+course:String
+book:String
+order:int
+
+}
+
+type Book {
+id: String
+title: String
+
+	
+}
+
+type Query
+{
+getAllBooks:[Book]
+getBookbyid(id:String):Book
+getListChapter: [Chapter]
+getChapterbyid(id:String):Chapter
+getListChapterByBook(book:Book):[book]
+}
+
+type Mutation{
+createBook(id:String, title): Book
+updateBook(id:String, title): Book
+deleteBook(id:String):Book
+createChapter(id:String, name:String,course:String ,book:Book, order:int):Chapter
+deleteChapter(id:String): Chapter
+updateChapter(id:String, name:String,course:String, book:Book, order:int):Chapter
+}
+
+schema {
+
+query:Query
+mutation: Mutation
+}
